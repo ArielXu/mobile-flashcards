@@ -11,6 +11,7 @@ import { orange, white } from './utils/colors'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import AddQuestion from './components/AddQuestion'
+import Quiz from './components/Quiz'
 
 function UdaciStatusBar ({backgroundColor, ...props}) {
   return (
@@ -73,6 +74,15 @@ const MainNavigator = createStackNavigator({
   },
   AddQuestion: {
     screen: AddQuestion,
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: orange
+      }
+    }
+  },
+  Quiz: {
+    screen: Quiz,
     navigationOptions: {
       headerTintColor: white,
       headerStyle: {
