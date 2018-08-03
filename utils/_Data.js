@@ -33,7 +33,7 @@ function setDecksData () {
 }
 
 export function formatDecksData (results) {
-  return (results === null || results === {})
+  return (results === null)
     ? setDecksData()
     : JSON.parse(results)
 }

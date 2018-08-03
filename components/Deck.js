@@ -3,16 +3,17 @@ import { View, StyleSheet, Text, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import TextButton from './TextButton'
 import { white } from '../utils/colors'
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
 
 class Deck extends Component {
   render () {
     const { deckId, state } = this.props
     return (
       <View style={styles.container}>
-        <Text>
+        <Text style={{fontSize: 20, textAlign: 'center'}}>
           {deckId}
         </Text>
-        <Text>
+        <Text style={{textAlign: 'center'}}>
           {state[deckId].questions.length} {state[deckId].questions.length > 1 ? 'cards' : 'card'}
         </Text>
         <TextButton 
@@ -26,10 +27,14 @@ class Deck extends Component {
         </TextButton>
         <TextButton
           style={{margin: 20}}
-          onPress={() => this.props.navigation.navigate(
-            'Quiz',
-            { deckId: deckId }
-          )}>
+          onPress={() => {
+            clearLocalNotification()
+              .then(setLocalNotification)
+            this.props.navigation.navigate(
+              'Quiz',
+              { deckId: deckId }
+            )
+          }}>
           Start Quiz
         </TextButton>
       </View>

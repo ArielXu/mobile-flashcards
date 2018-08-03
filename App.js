@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, StatusBar, Platform  } from 'react-native'
+import { StyleSheet, View, StatusBar, Platform, AsyncStorage } from 'react-native'
 import DeckList from './components/DeckList'
 import Deck from './components/Deck'
 import AddDeck from './components/AddDeck'
@@ -12,6 +12,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import AddQuestion from './components/AddQuestion'
 import Quiz from './components/Quiz'
+import { setLocalNotification } from './utils/helpers'
 
 function UdaciStatusBar ({backgroundColor, ...props}) {
   return (
@@ -93,6 +94,9 @@ const MainNavigator = createStackNavigator({
 })
 
 export default class App extends React.Component {
+  componentDidMount () {
+    setLocalNotification()
+  }
   render () {
     return (
       <Provider store={createStore(reducer)}>
