@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { white, orange } from '../utils/colors'
 import { addDeck } from '../actions'
 import { submitDeck } from '../utils/api'
-import { NavigationActions } from 'react-navigation'
 
 function SubmitBtn ({ onPress }) {
   return (

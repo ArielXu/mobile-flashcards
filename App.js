@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, StatusBar, Platform, AsyncStorage } from 'react-native'
+import { View, StatusBar, Platform } from 'react-native'
 import DeckList from './components/DeckList'
 import Deck from './components/Deck'
 import AddDeck from './components/AddDeck'

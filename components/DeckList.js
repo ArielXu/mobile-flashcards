@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native'
+import { ScrollView, TouchableOpacity } from 'react-native'
 import { fetchDecksData } from '../utils/api'
 import { connect } from 'react-redux'
 import DeckCard from './DeckCard'

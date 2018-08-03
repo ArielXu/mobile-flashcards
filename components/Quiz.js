@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text, ScrollView, TouchableOpacity, Platform } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import TextButton from './TextButton'
 import { white, orange } from '../utils/colors'
@@ -50,8 +50,8 @@ class Quiz extends Component {
               <Text style={{textAlign: 'center'}}>{remainedQues} {remainedQues > 1 ? 'questions' : 'question'} {remainedQues > 1 ? 'remain' : 'remains'}</Text>
             </View>
           : <View>
-              <Text>Your Score</Text>
-              <Text>{Math.floor((correctCounter / (correctCounter + incorrectCounter)) * 100)}</Text>
+              <Text style={{fontSize: 20, textAlign: 'center'}}>Your Score:</Text>
+              <Text style={{fontSize: 20, textAlign: 'center'}}>{Math.floor((correctCounter / (correctCounter + incorrectCounter)) * 100)}</Text>
               <TouchableOpacity
                 style={Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.AndroidSubmitBtn}
                 onPress={() => this.setState({

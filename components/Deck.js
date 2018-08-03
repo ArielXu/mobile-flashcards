@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Text, ScrollView } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
 import TextButton from './TextButton'
 import { white } from '../utils/colors'
@@ -16,8 +16,8 @@ class Deck extends Component {
         <Text style={{textAlign: 'center'}}>
           {state[deckId].questions.length} {state[deckId].questions.length > 1 ? 'cards' : 'card'}
         </Text>
-        <TextButton 
-          style={{margin: 20}} 
+        <TextButton
+          style={{margin: 20}}
           onPress={() => this.props.navigation.navigate(
             'AddQuestion',
             { deckId: deckId }
