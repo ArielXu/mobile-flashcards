@@ -31,17 +31,21 @@ class AddDeck extends Component {
       [title]: deck 
     }))
 
+    this.toNewDeck()
+
     this.setState(() => ({
       title: ''
     }))
 
-    this.toHome()
-
     submitDeck({ title, deck })
   }
 
-  toHome = () => {
-    this.props.navigation.dispatch(NavigationActions.back({key: 'AddDeck'}))
+  toNewDeck = () => {
+    const { title } = this.state
+    this.props.navigation.navigate(
+      'Deck',
+      { deckId: title }
+    )
   }
 
   render () {
